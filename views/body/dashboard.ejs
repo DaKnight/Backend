@@ -1,0 +1,593 @@
+<%- include('../header/navSidebar'); -%>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-map-marked"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Sites</span>
+                <span class="info-box-number">
+                  10
+                  <small>%</small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Capacity</span>
+                <span class="info-box-number">41,410</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-truck-loading"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Material Dispatch</span>
+                <span class="info-box-number">760</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3 ">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-wrench"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Installed</span>
+                <span class="info-box-number">2,000</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Meter</span>
+                <span class="info-box-number">
+                  10
+                  <small>%</small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">RMS</span>
+                <span class="info-box-number">41,410</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Material</span>
+                <span class="info-box-number">760</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">New Members</span>
+                <span class="info-box-number">2,000</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-6 ">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i>
+                  Sales
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales (id="revenue-chart") -->
+                  <div class="chart tab-pane active" >
+                       <div id="chart"></div>
+
+                       <script>
+                         
+                           var options = {
+                             series: [{
+                              name: "dimak",
+                             data: [21, 22, 10, 28, 16, 21, 13, 30]
+                           }],
+                             chart: {
+                             height: 350,
+                             type: 'bar',
+                             events: {
+                               click: function(chart, w, e) {
+                               }
+                             }
+                           },
+                           plotOptions: {
+                             bar: {
+                               columnWidth: '45%',
+                               distributed: true,
+                             }
+                           },
+                           dataLabels: {
+                             enabled: false
+                           },
+                           legend: {
+                             show: false
+                           },
+                           xaxis: {
+                             categories: [
+                               ['John', 'Doe'],
+                               ['Joe', 'Smith'],
+                               ['Jake', 'Williams'],
+                               'Amber',
+                               ['Peter', 'Brown'],
+                               ['Mary', 'Evans'],
+                               ['David', 'Wilson'],
+                               ['Lily', 'wala'], 
+                             ],
+                             labels: {
+                               style: {
+                                 fontSize: '12px'
+                               }
+                             }
+                           }
+                           };
+                   
+                           var chart = new ApexCharts(document.querySelector("#chart"), options);
+                           chart.render();
+                         
+                         
+                       </script>
+                   </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- /.Left col -->
+          <!-- right col -->
+          <section class="col-lg-6 ">
+
+            <!-- Map card -->
+            <div class="card ">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i> Chart 2</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" >
+                       <div id="chart2"></div>
+
+                       <script>
+                         
+                           var options2 = {
+                             series: [{
+                              name: "dimak",
+                             data: [21, 22, 10, 28, 16, 21, 13, 30]
+                           }],
+                             chart: {
+                             height: 350,
+                             type: 'bar',
+                             events: {
+                               click: function(chart2, w, e) {
+                               }
+                             }
+                           },
+                           plotOptions: {
+                             bar: {
+                               columnWidth: '45%',
+                               distributed: true,
+                             }
+                           },
+                           dataLabels: {
+                             enabled: false
+                           },
+                           legend: {
+                             show: false
+                           },
+                           xaxis: {
+                             categories: [
+                               ['John', 'Doe'],
+                               ['Joe', 'Smith'],
+                               ['Jake', 'Williams'],
+                               'Amber',
+                               ['Peter', 'Brown'],
+                               ['Mary', 'Evans'],
+                               ['David', 'Wilson'],
+                               ['Lily', 'why'], 
+                             ],
+                             labels: {
+                               style: {
+                                 fontSize: '12px'
+                               }
+                             }
+                           }
+                           };
+                   
+                           var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+                           chart2.render();
+                         
+                         
+                       </script>
+                   </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+        
+        <!-- Second row -->
+        <div class="row">
+          <!-- top col -->
+          <section class="col-12 ">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i>
+                  Details
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <div class="chart tab-pane active">
+                       <table class="table table-danger">
+                        <tbody>
+                          <tr>
+                            <th>Materials yet to be dispatched</th>
+                            <td>220</td>
+                          </tr>
+                          <tr>
+                            <th>Site not installed</th>
+                            <td>220</td>
+                          </tr>
+                          <tr>
+                            <th>Meter Working</th>
+                            <td>220</td>
+                          </tr>
+                          <tr>
+                            <th>RMS not working</th>
+                            <td>220</td>
+                          </tr>
+                        </tbody>
+                       </table>
+                  </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- /.top col -->
+        </div>
+        <!-- /.row (Second row) -->
+        
+        <!-- Third row -->
+        <div class="row">
+          
+          <!-- modal col -->
+          <section class="col-12 ">
+            <!-- Custom tabs (Charts with tabs)-->
+              <!-- View Tables -->
+              <div class="col-12">
+                <div class="card card-primary card-outline card-outline-tabs">
+                  <div class="card-header p-0 border-bottom-0">
+                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Phase Wise</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">District Wise</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Vendor Wise</a>
+                    </li>
+                </ul>
+                <div class="card-body p-0">
+                    <div class="tab-content" id="custom-tabs-four-tabContent">
+                      <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                        <div class="card mb-0">
+                          <div class="card-header">
+                            <h3 class="card-title">DataTable with default features</h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped d-block d-md-table" style="overflow-x: scroll;">
+                              <thead>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td>Trident</td>
+                                <td>AOL browser (AOL desktop)</td>
+                                <td>Win XP</td>
+                                <td>6</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Presto</td>
+                                <td>Opera 7.0</td>
+                                <td>Win 95+ / OSX.1+</td>
+                                <td>-</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Tasman</td>
+                                <td>Internet Explorer 5.2</td>
+                                <td>Mac OS 8-X</td>
+                                <td>1</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Misc</td>
+                                <td>PSP browser</td>
+                                <td>PSP</td>
+                                <td>-</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Other browsers</td>
+                                <td>All others</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>U</td>
+                              </tr>
+                              </tbody>
+                              <tfoot>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                      </div>
+
+                      <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                        <div class="card mb-0">
+                          <div class="card-header">
+                            <h3 class="card-title">DataTable with default features</h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped d-block d-md-table" style="overflow-x: scroll;">
+                              <thead>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td>Trident</td>
+                                <td>AOL browser (AOL desktop)</td>
+                                <td>Win XP</td>
+                                <td>6</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Presto</td>
+                                <td>Opera 7.0</td>
+                                <td>Win 95+ / OSX.1+</td>
+                                <td>-</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Tasman</td>
+                                <td>Internet Explorer 5.2</td>
+                                <td>Mac OS 8-X</td>
+                                <td>1</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Misc</td>
+                                <td>PSP browser</td>
+                                <td>PSP</td>
+                                <td>-</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Other browsers</td>
+                                <td>All others</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>U</td>
+                              </tr>
+                              </tbody>
+                              <tfoot>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                      </div>
+                      
+                      <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
+                        <div class="card mb-0">
+                          <div class="card-header">
+                            <h3 class="card-title">DataTable with default features</h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped d-block d-md-table" style="overflow-x: scroll;">
+                              <thead>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td>Trident</td>
+                                <td>AOL browser (AOL desktop)</td>
+                                <td>Win XP</td>
+                                <td>6</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Presto</td>
+                                <td>Opera 7.0</td>
+                                <td>Win 95+ / OSX.1+</td>
+                                <td>-</td>
+                                <td>A</td>
+                              </tr>
+                              <tr>
+                                <td>Tasman</td>
+                                <td>Internet Explorer 5.2</td>
+                                <td>Mac OS 8-X</td>
+                                <td>1</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Misc</td>
+                                <td>PSP browser</td>
+                                <td>PSP</td>
+                                <td>-</td>
+                                <td>C</td>
+                              </tr>
+                              <tr>
+                                <td>Other browsers</td>
+                                <td>All others</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>U</td>
+                              </tr>
+                              </tbody>
+                              <tfoot>
+                              <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                              </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            <!-- /. View Tables -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- /.modal col -->
+        </div>
+        <!-- /.row (Third row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <%- include('../footer/footer'); -%>

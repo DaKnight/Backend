@@ -1,0 +1,104 @@
+
+<%- include('../header/navSidebar'); -%>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add User</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add User</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <form action="/users/create" method="POST">
+            <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">User Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" name="name" id="userName" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label>User Email</label>
+                        <input type="email" name="email" id="userEmail" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label>User Contact/Mobile No.</label>
+                        <input type="tel" name="contact" id="userContact" maxlength="13" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label>Role of User</label>
+                          <select class="form-control select2" name="role" style="width: 100%;">
+                            <option selected="selected" disabled>Select...</option>
+                            <option>Admin</option>
+                            <option>Editor</option>
+                            <option>Viewer</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label>Status of User</label>
+                        <select class="form-control select2" name="status" style="width: 100%;">
+                            <option selected="selected" disabled>Select...</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button class="btn btn-primary px-3">Create User</button>
+            </div>
+            </div>
+        <!-- /.card -->
+        </form>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <%- include('../footer/footer'); -%>

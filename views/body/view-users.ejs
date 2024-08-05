@@ -1,0 +1,169 @@
+<%- include('../header/navSidebar'); -%>
+<style>
+  .error{
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: calc( 100% - 250px );
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.474);
+    display: none;
+  }
+
+  .elevate{
+    margin-top: 70px;
+    z-index: 9999;
+  }
+  
+  .card-header::after{
+    content: none;
+  }
+</style>
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>View Users</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">View Users</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="error">
+      <div class="row m-0 p-0">
+        <div class="col-10 col-md-6 mx-auto">
+          <div class="card elevate">
+            <div class="card-header py-2 d-flex flex-row justify-content-between align-items-center">
+              <h4 class="m-0">Info</h4>
+              <i class="fa fa-times close" style="cursor: pointer;"></i>
+            </div>
+            <div class="card-body py-2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">User Details</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>S No</th>
+                      <th>User Name</th>
+                      <th>User Email</th>
+                      <th>Contact</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let i = 0; i < data.length ; i++) { %>
+                      <tr>
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].name %></td>
+                        <td><%= data[i].email %></td>
+                        <td><%= data[i].contact %></td>
+                        <td><%= data[i].role %></td>
+                        <td><%= data[i].status %></td>
+                        <td><a href="#" class="btn btn-secondary editUser">Edit</a> <button class="btn btn-danger deleteUser">Delete</button></td>
+                      </tr>
+                    <% } %>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>S No</th>
+                      <th>User Name</th>
+                      <th>User Email</th>
+                      <th>Contact</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
+  <script>
+    let deleted = false;
+
+    async function deleteUser(email){
+      try{
+        const response = await fetch('/users/'+email, { method: 'DELETE'});
+        let result = await response.json();
+        let box = document.querySelector('.error').querySelector('.card-body');
+        box.innerHTML = '';
+        if(result.status == 200){
+          let info = document.createElement('p');
+          info.className = 'hi';
+          info.innerText = "User Deleted!";
+          box.appendChild(info);
+          box.style.display = 'block';
+        }
+        else{
+          let info = document.createElement('p');
+          info.className = 'hi';
+          info.innerText = "Error Deleting User.";
+          box.appendChild(info);
+          box.style.display = 'block';
+        }
+      }catch(err){
+        console.log("Error: ",err);
+      }
+    }
+
+    document.querySelectorAll('.deleteUser').forEach(btn => {
+        btn.addEventListener('click',(e)=>{
+          let target = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling;
+          deleteUser(target.innerText);          
+        });
+    });
+
+    if(document.querySelector('.close')){
+      document.querySelector('.error').addEventListener('click', (e)=>{
+        e.stopPropagation();
+        if(!document.querySelector('.card').contains(e.target)){
+          console.log(e.target)
+          document.querySelector('.error').style.display = 'none';
+        }
+      });
+
+      document.querySelector('.close').addEventListener('click', ()=>{
+        document.querySelector('.error').style.display = 'none';
+      });
+    }
+  </script>
+
+<%- include('../footer/footer'); -%>
